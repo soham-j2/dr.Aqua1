@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaPure - Simple Rural Water Monitor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="app-layout">
+
+        <!-- Simple Simulation Drawer / Controller -->
+        <aside class="simple-controls">
+            <div class="sim-header">
+                <h2>🧪 Test Water Scenarios</h2>
+                <p>Simple tap buttons for demonstration & rural testing</p>
+            </div>
+
+            <div class="test-buttons">
+                <button class="test-btn active" id="btn-good-water">
+                    <span class="btn-icon">🚰</span>
+                    <div class="btn-text">
+                        <strong>Clean Tap Water</strong>
+                        <span>Safe TDS (120 PPM) • Healthy Filter</span>
+                    </div>
+                </button>
+
+                <button class="test-btn" id="btn-dirty-water">
+                    <span class="btn-icon">🏞️</span>
+                    <div class="btn-text">
+                        <strong>High Mineral Borewell</strong>
+                        <span>Borewell (1,450 PPM) • Filter Cleaning It</span>
+                    </div>
+                </button>
+
+                <button class="test-btn danger-test" id="btn-broken-filter">
+                    <span class="btn-icon">🚨</span>
+                    <div class="btn-text">
+                        <strong>Filter Replacement Alert</strong>
+                        <span>Filter Failed • Outlet matches Dirty Water</span>
+                    </div>
+                </button>
+            </div>
+
+            <div class="point-selector">
+                <label>Active Usage Point:</label>
+                <div class="pill-group">
+                    <button class="point-pill active" data-point="Community Borewell">🏙️ Village Borewell</button>
+                    <button class="point-pill" data-point="Household Tap">🚰 Home Tap</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Smartphone Container -->
+        <main class="phone-viewport">
+            <div class="phone-frame">
+                
+                <!-- Phone Top Bar -->
+                <div class="phone-notch">
+                    <span class="notch-time">09:41</span>
+                    <div class="notch-pill"></div>
+                    <span class="notch-icon">📶 🔋</span>
+                </div>
+
+                <!-- Main Phone Screen -->
+                <div class="phone-screen">
+                    
+                    <!-- Top Location Banner -->
+                    <header class="app-topbar">
+                        <div class="location-box">
+                            <span class="loc-dot"></span>
+                            <span id="loc-title">Village Borewell Unit</span>
+                        </div>
+                        <span class="live-tag">LIVE</span>
+                    </header>
+
+                    <!-- Main Water Status Hero Card (Big & Clear) -->
+                    <section class="hero-status-card status-safe" id="hero-card">
+                        <div class="status-icon-circle" id="status-icon">🟢</div>
+                        <div class="status-badge" id="status-badge">SAFE TO DRINK</div>
+                        
+                        <div class="big-tds-display">
+                            <span class="tds-val" id="tds-val">120</span>
+                            <span class="tds-unit">PPM PURITY</span>
+                        </div>
+                        
+                        <p class="status-simple-text" id="status-desc">Water is clean and safe for drinking.</p>
+                    </section>
+
+                    <!-- Indicators Section (Only Essential Indicators) -->
+                    <section class="indicators-section">
+                        
+                        <!-- Indicator 1: Before & After Water Quality -->
+                        <div class="indicator-card">
+                            <div class="indicator-header">
+                                <span class="ind-icon">💧</span>
+                                <h3>Water Purity Indicator</h3>
+                            </div>
+
+                            <div class="purity-bar-box">
+                                <div class="purity-col">
+                                    <span class="purity-label">RAW WATER</span>
+                                    <span class="purity-val" id="inlet-tds">1,250 <small>PPM</small></span>
+                                    <span class="purity-sub">Before Filter</span>
+                                </div>
+                                <div class="purity-arrow">➡️</div>
+                                <div class="purity-col">
+                                    <span class="purity-label">DRINKING WATER</span>
+                                    <span class="purity-val highlight" id="outlet-tds">120 <small>PPM</small></span>
+                                    <span class="purity-sub">After Filter</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Indicator 2: Filter Health Status -->
+                        <div class="indicator-card">
+                            <div class="indicator-header">
+                                <span class="ind-icon">🛡️</span>
+                                <h3>Filter Health Indicator</h3>
+                            </div>
+
+                            <div class="filter-status-box" id="filter-health-box">
+                                <div class="filter-health-badge health-ok" id="filter-badge">
+                                    <span id="filter-status-icon">✅</span>
+                                    <span id="filter-status-title">Filter is Healthy</span>
+                                </div>
+                                <p class="filter-simple-desc" id="filter-desc">UF membrane barrier active (~0.01 µm blocking bacteria).</p>
+                            </div>
+                        </div>
+
+                    </section>
+
+                    <!-- Simple App Footer Notice -->
+                    <footer class="app-footer">
+                        <span>Dual-Sensor Auto Verification Active</span>
+                    </footer>
+
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
